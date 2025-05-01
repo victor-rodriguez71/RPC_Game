@@ -7,9 +7,9 @@
 
 function getComputerChoice() {
     let answer = Math.floor(Math.random() * 3) + 1;
-
+    let computerChoice = answer;
     console.log(answer);
-    return answer;
+    return computerChoice;
 
 }
 
@@ -41,15 +41,12 @@ let round = 0;
 function playRound(computerChoice, humanChoice) {
     if (humanChoice === computerChoice) {
         console.log("Try Again!");
-        round++;
     } else if (humanChoice < computerChoice) {
         console.log("You lose!");
         computerScore++;
-        round++;
     } else {
         console.log("You win!");
         humanScore++;
-        round++;
     }
 
     round++;
@@ -57,11 +54,10 @@ function playRound(computerChoice, humanChoice) {
 
 }
 
-let computerChoice = getComputerChoice();
-let humanChoice = getHumanChoice();
-
 function playGame() {
     while (round < 5) {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
         playRound(computerChoice, humanChoice)
     } 
 }
