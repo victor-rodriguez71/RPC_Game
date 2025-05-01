@@ -41,6 +41,7 @@ let round = 0;
 function playRound(computerChoice, humanChoice) {
     if (humanChoice === computerChoice) {
         console.log("Try Again!");
+        round++;
     } else if (humanChoice < computerChoice) {
         console.log("You lose!");
         computerScore++;
@@ -48,13 +49,21 @@ function playRound(computerChoice, humanChoice) {
     } else {
         console.log("You win!");
         humanScore++;
+        round++;
     }
 
     round++;
     console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore} | Round: ${round}`);
+
 }
 
 let computerChoice = getComputerChoice();
 let humanChoice = getHumanChoice();
 
-playRound(computerChoice, humanChoice);
+function playGame() {
+    while (round < 5) {
+        playRound(computerChoice, humanChoice)
+    } 
+}
+
+playGame()
